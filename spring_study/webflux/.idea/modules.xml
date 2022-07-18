@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/RouterFunction/RouterFunction.iml" filepath="$PROJECT_DIR$/RouterFunction/RouterFunction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SSE/SSE.iml" filepath="$PROJECT_DIR$/SSE/SSE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stream_lamd_srb/stream_lamd_srb.iml" filepath="$PROJECT_DIR$/stream_lamd_srb/stream_lamd_srb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webflux.iml" filepath="$PROJECT_DIR$/webflux.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webflux_client/webflux_client.iml" filepath="$PROJECT_DIR$/webflux_client/webflux_client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webflux_study/webflux_study.iml" filepath="$PROJECT_DIR$/webflux_study/webflux_study.iml" />
+    </modules>
+  </component>
+</project>

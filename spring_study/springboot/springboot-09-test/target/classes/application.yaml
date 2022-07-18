@@ -1,0 +1,13 @@
+server:
+  port: 9090
+
+spring:
+  mail:
+    username: 915323422@qq.com
+    password: ownscrwcdgoebbea
+    host: smtp.qq.com
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true

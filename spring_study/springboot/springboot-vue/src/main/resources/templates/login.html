@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--上面是thymeleaf约束-->
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>登录</h1>
+<hr>
+<!--如果登录出错，那么后端就会传来msg告诉用户哪里错了-->
+<!--/*@thymesVar id="msg" type=""*/-->
+<p th:text="${msg}" style="color: red;"></p>
+<form th:action="@{/login}" method="post">
+    <p>用户名：<input type="text" name="username"></p>
+    <p>密码：<input type="password" name="password"></p>
+    <p><input type="submit"></p>
+</form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.thymeleaf.org/thymeleaf-extras-shiro">
+<head>
+    <!--上面是shiro和thymeleaf约束-->
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>首页</h1>
+<p th:text="${msg}"></p><br>
+<!--如果用户登录了，那么这个登录按钮就不显示了-->
+<div shiro:guest="true">
+    <a th:href="@{/toLogin}">登录</a><br>
+</div>
+<!--如果用户有user:add这个权限，那么他的首页将会显示add按钮-->
+<div shiro:hasPermission="user:add">
+    <a th:href="@{/user/add}">add</a>
+</div>
+<!--如果用户有user:update这个权限，那么他的首页将会显示update按钮-->
+<div shiro:hasPermission="user:update">
+    <a th:href="@{/user/update}">update</a>
+</div>
+<!--如果用户登录了，那么这个注销按钮才会显示-->
+<div shiro:user="">
+    <a th:href="@{/logout}">注销</a>
+</div>
+
+</body>
+</html>

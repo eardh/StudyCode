@@ -1,0 +1,22 @@
+# 可以通过 debug: true 来查看哪些自动配置类生效，哪些不生效
+debug: true
+---
+server: #默认
+  port: 9091
+spring:
+  profiles:
+    active: dev #优先级选择
+---
+server:
+  port: 9092
+spring: #spring: profiles: 已废弃，用下列方式
+  config:
+    activate:
+      on-profile: dev
+---
+server:
+  port: 9093
+spring:
+  config:
+    activate:
+      on-profile: test

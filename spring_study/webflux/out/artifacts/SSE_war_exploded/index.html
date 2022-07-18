@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="get" action="sse">
+        <input type="submit">
+    </form>
+    <a href="sse" >闪退</a>
+<script type="text/javascript">
+
+    // 初始化，参数为url
+    var sse = new EventSource("sse");
+    sse.onmessage = function (e) {
+        console.log("message:",e.data,e);
+    }
+    sse.addEventListener("me",function (e) {
+        console.log("me event",e.data,e);
+        if ( e.data == 4){
+            sse.close();
+        }
+    })
+</script>
+</body>
+</html>

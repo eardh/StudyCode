@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.springframework.data:spring-data-r2dbc:1.2.8">
+    <CLASSES>
+      <root url="jar://D:/Java/maven-3.6.3/repository/org/springframework/data/spring-data-r2dbc/1.2.8/spring-data-r2dbc-1.2.8.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/Java/maven-3.6.3/repository/org/springframework/data/spring-data-r2dbc/1.2.8/spring-data-r2dbc-1.2.8-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/Java/maven-3.6.3/repository/org/springframework/data/spring-data-r2dbc/1.2.8/spring-data-r2dbc-1.2.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

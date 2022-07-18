@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.thymeleaf.org/thymeleaf-extras-shiro">
+<head>
+    <title>Hello WebSocket</title>
+    <link href="/webjars/bootstrap/4.6.0-1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/main.css" rel="stylesheet">
+    <script src="/webjars/jquery/3.6.0/jquery.js"></script>
+    <script>
+        $(function (){
+            var username = '[[${session.currentUser.username}]]';
+            var websocket = null;
+            if('WebSocket' in window){
+                if( username != "" || username != null){
+                    websocket = new WebSocket("ws://localhost:8080/ws?username="+username);
+                }
+            }
+
+            websocket.onopen = function(){
+                console.log("连接成功");
+            }
+
+            websocket.onclose = function(){
+                console.log("退出连接");
+            }
+
+            websocket.onmessage = function (event){
+                console.log("收到消息"+event.data);
+            }
+
+
+            websocket.onerror = function(){
+                console.log("连接出错");
+            }
+
+            window.onbeforeunload = function () {
+                websocket.close(num);
+            }
+
+            $("#send").click(function (){
+                var type="text";
+                let s = JSON.stringify({
+                    'send_username':username,
+                    'receive_username': $("#to").val(),
+                    'sendtext':$("#msg").val(),
+                    'sendtime': new Date(),
+                    'msgtype' : type
+                });
+                websocket.send(s);
+            })
+
+            $("#sendf").click(function (){
+                var type="stream";
+                var fl=$("#file1").val();
+                var fr = new FileReader();
+                fr.readAsDataURL(fl);
+                fr.onload = function (){
+                    console.log(fr.result);
+                    websocket.send(
+                        {
+                            'send_username':username,
+                            'receive_username': $("#to1").val(),
+                            'sendtext':fr.result,
+                            'sendtime': new Date(),
+                            'msgtype' : type
+                        }
+                    )
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<div id="main-content" class="container">
+    <div>
+        <div contenteditable="true" id="msg" placeholder="输入要发送的消息"></div><br>
+        <input type="text" id="to" placeholder="发给谁"><br>
+        <button id="send">发送</button>
+    </div>
+    <hr>
+    <div>
+        <input type="file" id="file1" placeholder="输入要发送的消息"><br>
+        <input type="text" id="to1" placeholder="发给谁"><br>
+        <button id="sengf">发送</button>
+    </div>
+
+</div>
+</body>
+</html>

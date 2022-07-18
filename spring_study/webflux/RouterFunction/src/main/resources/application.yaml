@@ -1,0 +1,13 @@
+server:
+  port: 9090
+spring:
+#  data:
+#    mongodb:
+#      uri: mongodb://localhost:27017/webflux
+
+  r2dbc:
+    url: r2dbcs:mysql://127.0.0.1:3306/test
+    password: 123456
+    username: root
+    name: root
+
